@@ -1,0 +1,2422 @@
+﻿[  
+  {
+      "name": "Proceskaart (Van der Spek, 2015)", 
+      "layertype": "mapbox-layer-group",
+      "active": false,
+      "data": [
+       {
+          "id": "PROCESSmaps",
+          "type": "fill",
+          "name": "PROCESSmaps",
+          "active": true,
+          "source": {
+            "type": "geojson",
+            "data": "./static/data/PROCESSflowwave.GEOjson"
+          },
+          "minzoom": 4,
+          "z-order": 2,
+          "description": "description",
+          "layout": {
+            "visibility": "none"
+          },
+          "paint": {
+            "fill-color": 
+              [
+                "interpolate",
+                ["linear"],
+                ["get", "location"],
+                1,
+                "hsla(200, 98%, 58%, 0.45)",
+                2,
+                "hsla(46, 100%, 53%, 0.35)"
+              ]
+          }
+        },
+        {
+            "id": "transport_arrows",
+            "type": "line",
+            "name": "transport_arrows",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/PROCESStide.GEOjson"
+            },
+            "minzoom": 4,
+            "description": "description",
+            "layout": {
+              "visibility": "none"
+            },
+            "paint": {
+              "line-color": 
+                [
+		  "interpolate",
+		  ["linear"],
+		  ["get", "location"],
+		  1,
+		  "hsl(245, 98%, 56%)",
+		  2,
+		  "hsl(115, 98%, 34%)",
+		  3,
+		  "hsl(0, 98%, 56%)"
+                ],
+              "line-width": 3
+            }
+        },
+        {
+          "id": "DEPTHcontours2",
+          "type": "line",
+          "active": true,
+          "source": {
+            "type": "geojson",
+            "data": "./static/data/ZDHCWDdepthcontours.GEOjson"
+          },
+          "paint": {
+            "line-color": "hsl(0, 7%, 94%)",
+            "line-width": 1
+          }
+        }
+      ]
+  },
+  
+  {
+        "name": "Golfgedreven transport : intensiteit D3D",
+        "layertype": "mapbox-layer-group",
+        "active": false,
+        "data": [{
+            "id": "PROCESSwavedrivencurrentLINE",
+            "type": "line",
+            "name": "PROCESSwavedrivencurrentLINE",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/wavedriventransport_LINE.GEOjson"
+            },
+            "minzoom": 4,
+            "z-order": 2,
+            "description": "description",
+            "layout": {
+              "visibility": "none"
+            },
+            "paint": {
+              "line-color": 
+                [
+		  "interpolate",
+		  ["linear"],
+		  ["get", "Transport"],
+		  -9,
+		  "hsl(190, 100%, 50%)",
+		  -8,
+		  "hsl(245, 98%, 50%)",
+		  -7,
+		  "hsl(62, 98%, 50%)",
+		  -5,
+		  "hsl(0, 98%, 50%)"
+                ],
+              "line-width": 2
+            }
+          },
+          {
+          "id": "PROCESSwavedrivencurrentARROW",
+          "name": "PROCESSwavedrivencurrentARROW",
+          "type": "symbol",
+          "active": true,
+          "source": {
+            "type": "geojson",
+            "data": "./static/data/wavedriventransport_ARROWS.GEOjson"
+          },
+          "layout": {
+            "text-field": "➤",
+            "visibility": "none",
+            "text-pitch-alignment": "map",
+            "text-rotation-alignment": "map",
+            "text-rotate": [
+              "interpolate",
+              ["linear"],
+              ["get", "direction"],
+              180,
+              180,
+              540,
+              540
+            ],
+            "text-size": [
+              "interpolate",
+              ["linear"],
+              ["get", "velocity"],
+              0,
+              0,
+              2.5,
+              0
+            ]
+          },
+          "paint": {
+            "text-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "velocity"],
+              0.0000000000,
+              "hsl(109, 95%, 54%)",
+              2.5000000000,
+              "hsl(0, 94%, 54%)"
+            ]
+          }
+        }
+      ]
+  },
+
+  {
+        "name": "Getijgedreven transport : intensiteit D3D",
+        "layertype": "mapbox-layer-group",
+        "active": false,
+        "data": [{
+            "id": "PROCESStidedrivencurrentLINE",
+            "type": "line",
+            "name": "PROCESStidedrivencurrentLINE",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/tidedriventransportNEW_LINE.GEOjson"
+            },
+            "minzoom": 4,
+            "z-order": 2,
+            "description": "description",
+            "layout": {
+              "visibility": "none"
+            },
+            "paint": {
+              "line-color": 
+                [
+		  "interpolate",
+		  ["linear"],
+		  ["get", "Transport"],
+		  -9,
+		  "hsl(190, 100%, 50%)",
+		  -8,
+		  "hsl(245, 98%, 50%)",
+		  -7,
+		  "hsl(62, 98%, 50%)",
+		  -5,
+		  "hsl(0, 98%, 50%)"
+                ],
+              "line-width": 2
+            }
+          }
+        ]
+  },
+
+  {
+    "name": "Brandingszone : netto transport (UNIBEST)",
+    "layertype": "mapbox-layer-group",
+    "active": false,
+    "data": [{
+      "id": "ubtrPRN",
+      "name": "unibest-transportPRN",
+      "type": "symbol",
+      "active": true,
+      "source": {
+        "type": "geojson",
+        "data": "./static/data/TRANSPORT_coast_netherlands_UB3.geojson"
+      },
+      "layout": {
+        "text-field": "➤",
+        "visibility": "none",
+        "text-pitch-alignment": "map",
+        "text-rotation-alignment": "map",
+        "text-rotate": [
+          "interpolate",
+          ["linear"],
+          ["get", "QSangle"],
+          180,
+          180,
+          540,
+          540
+        ],
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["get", "QSnet"],
+          -300.0000000000,
+          55,
+          0,
+          25,
+          300.0000000000,
+          55
+        ]
+      },
+      "paint": {
+        "text-color": [
+          "interpolate",
+          ["linear"],
+          ["get", "QSnet"],
+          -300,
+          "hsl(0, 95%, 50%)",
+          0,
+          "hsl(109, 95%, 50%)",
+          300,
+          "hsl(0, 95%, 50%)"
+        ]
+      }
+    }],
+    "barlegend": "background: linear-gradient(to right, #33f906, #f90606);",
+    "bartext": "0  100000  200000 300000"
+  },    
+ 
+  {
+        "name": "Vooroever : netto transport (SPCM)",
+        "layertype": "mapbox-layer-group",
+        "active": false,
+        "data": [{
+            "id": "SPCMtransportrays",
+            "type": "line",
+            "name": "SPCMtransportrays",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/SPCMtransportRAYS.GEOjson"
+            },
+            "minzoom": 4,
+            "z-order": 2,
+            "paint": {
+              "line-color": "hsl(50, 0%, 90%)",
+              "line-width": 1
+            }
+          },
+            {
+            "id": "SPCMtransport",
+            "name": "SPCMtransport",
+            "type": "symbol",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/TRANSPORT_coast_netherlands_SPCM_vr93and04_wavedrivencurrent.GEOjson"
+            },
+            "minzoom": 4,
+            "z-order": 2,
+            "layout": {
+              "text-field": "→",
+              "visibility": "none",
+              "text-pitch-alignment": "map",
+              "text-rotation-alignment": "map",
+              "text-padding": 0,
+              "text-allow-overlap": true,
+              "text-ignore-placement": false,
+              "text-rotate": [
+                "interpolate",
+                ["linear"],
+                ["get", "DIRnet"],
+                180,
+                180,
+                540,
+                540
+              ],
+               "text-font": [
+               "Spectral ExtraBold",
+               "Arial Unicode MS Regular"
+              ],
+              "text-size": [
+                "interpolate",
+                ["linear"],
+                ["get", "QSnet"],
+                0,
+                2,
+                20,
+                15,
+                60,
+                45,
+                90,
+                65
+              ]
+            },
+            "paint": {
+              "text-color": [
+                "interpolate",
+                ["linear"],
+                ["get", "QSnet"],
+                0.0000000000,
+                "hsl(109, 95%, 50%)",
+                95.000000000,
+                "hsl(0, 95%, 50%)"
+            ]
+          }
+        }
+      ],
+    "barlegend": "background: linear-gradient(to right, #33f906, #f90606);",
+    "bartext": "0 30000  300000   3000000"
+  },
+   {
+    "name": "Vooroever : suspensief transport (netto)",
+    "layertype": "mapbox-layer-group",
+    "active": false,
+    "data": [
+      {
+        "id": "st_sus_a_net_spring_15x5",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.21rek802",
+          "type": "vector"
+        },
+        "source-layer": "stA_spring7_015KalonX005Kcros-bjv7yo",
+        "minzoom": 0,
+        "maxzoom": 8.5,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SSA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGA"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SSA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGA"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              4,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              40,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SSA"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_sus_a_net_spring_5x3",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.2gx8dw80",
+          "type": "vector"
+        },
+        "source-layer": "stA_spring7_005KalonX003Kcros-53erpx",
+        "minzoom": 8.5,
+        "maxzoom": 10,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SSA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGA"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SSA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGA"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              4,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              40,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SSA"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_sus_a_net_spring_full",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.9qe6zro2",
+          "type": "vector"
+        },
+        "source-layer": "stA_spring7_001KalonX001Kcros-04y79g",
+        "minzoom": 10,
+        "maxzoom": 22,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SSA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGA"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SSA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGA"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              4,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              40,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SSA"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+     {
+        "id": "st_sus_c_net_spring_15x5",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.0cx7cqfs",
+          "type": "vector"
+        },
+        "source-layer": "stC_spring7_015KalonX005Kcros-av6ic6",
+        "minzoom": 0,
+        "maxzoom": 8.5,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SSC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGC"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SSC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGC"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              1.5,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              15,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SSC"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_sus_c_net_spring_5x3",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.8tm5tgxx",
+          "type": "vector"
+        },
+        "source-layer": "stC_spring7_005KalonX003Kcros-0rdkeu",
+        "minzoom": 8.5,
+        "maxzoom": 10,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SSC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGC"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SSC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGC"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              1.5,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              15,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SSC"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_sus_c_net_spring_full",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.5nmuptre",
+          "type": "vector"
+        },
+        "source-layer": "stC_spring7_001KalonX001Kcros-btlfb5",
+        "minzoom": 10,
+        "maxzoom": 22,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SSC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGC"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SSC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGC"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              1.5,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              15,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SSC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SSC"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      }             
+    ],
+    "barlegend": "background: linear-gradient(to right, #b10606, #faf9f9, #1a15ac);",
+    "bartext": "-500000 0 500000"
+  },  
+
+  {
+    "name": "Vooroever : bodemtransport (netto)",
+    "layertype": "mapbox-layer-group",
+    "active": false,
+    "data": [
+      {
+        "id": "st_bed_a_net_spring_15x5",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.21rek802",
+          "type": "vector"
+        },
+        "source-layer": "stA_spring7_015KalonX005Kcros-bjv7yo",
+        "minzoom": 0,
+        "maxzoom": 8.5,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SBA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGA"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SBA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGA"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              4,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              40,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SBA"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_a_bed_net_spring_5x3",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.2gx8dw80",
+          "type": "vector"
+        },
+        "source-layer": "stA_spring7_005KalonX003Kcros-53erpx",
+        "minzoom": 8.5,
+        "maxzoom": 10,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SBA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGA"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SBA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGA"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              4,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              40,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SBA"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_a_bed_net_spring_full",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.9qe6zro2",
+          "type": "vector"
+        },
+        "source-layer": "stA_spring7_001KalonX001Kcros-04y79g",
+        "minzoom": 10,
+        "maxzoom": 22,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SBA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGA"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SBA"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGA"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              4,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              40,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBA"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SBA"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_c_bed_net_spring_15x5",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.0cx7cqfs",
+          "type": "vector"
+        },
+        "source-layer": "stC_spring7_015KalonX005Kcros-av6ic6",
+        "minzoom": 0,
+        "maxzoom": 8.5,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SBC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGC"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SBC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGC"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              1.5,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              15,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SBC"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_c_bed_net_spring_5x3",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.8tm5tgxx",
+          "type": "vector"
+        },
+        "source-layer": "stC_spring7_005KalonX003Kcros-0rdkeu",
+        "minzoom": 8.5,
+        "maxzoom": 10,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SBC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGC"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SBC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGC"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              1.5,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              15,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SBC"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      },
+      {
+        "id": "st_c_bed_net_spring_full",
+        "type": "symbol",
+        "source": {
+          "url": "mapbox://alvareza.5nmuptre",
+          "type": "vector"
+        },
+        "source-layer": "stC_spring7_001KalonX001Kcros-btlfb5",
+        "minzoom": 10,
+        "maxzoom": 22,
+        "layout": {
+          "visibility": "none",
+          "text-field": "→",
+          "icon-image": "",
+          "symbol-placement": "point",
+          "symbol-avoid-edges": false,
+          "text-rotate": [
+            "case",
+            [
+              ">",
+              [
+                "get",
+                "SBC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "get",
+                "ANGC"
+              ]
+            ],
+            [
+              "<",
+              [
+                "get",
+                "SBC"
+              ],
+              0
+            ],
+            [
+              "-",
+              360,
+              [
+                "+",
+                180,
+                [
+                  "get",
+                  "ANGC"
+                ]
+              ]
+            ],
+            0
+          ],
+          "text-pitch-alignment": "auto",
+          "text-rotation-alignment": "auto",
+          "text-padding": 0,
+          "text-allow-overlap": true,
+          "text-ignore-placement": false,
+          "text-font": [
+            "Spectral ExtraBold",
+            "Arial Unicode MS Regular"
+          ],
+          "text-size": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "zoom"
+            ],
+            9,
+            [
+              "*",
+              1.5,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ],
+            22,
+            [
+              "*",
+              15,
+              [
+                "^",
+                2,
+                [
+                  "log10",
+                  [
+                    "/",
+                    [
+                      "abs",
+                      [
+                        "get",
+                        "SBC"
+                      ]
+                    ],
+                    1000
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "text-max-width": 2,
+          "text-line-height": 2
+        },
+        "paint": {
+          "text-color": [
+            "interpolate",
+            [
+              "linear"
+            ],
+            [
+              "get",
+              "SBC"
+            ],
+            -500000,
+            "hsl(0, 93%, 36%)",
+            0,
+            "hsl(0, 8%, 98%)",
+            500000,
+            "hsl(242, 78%, 38%)"
+          ]
+        },
+        "line-width": 2,
+        "line-height": 2
+      }         
+    ],
+    "barlegend": "background: linear-gradient(to right, #b10606, #faf9f9, #1a15ac);",
+    "bartext": "-500000 0 500000"
+  },
+  {
+    "name": "Enhancement of transport for a spring tide over a neap tide (with waves)",
+    "layertype": "mapbox-layer-group",
+    "static": true,
+    "barlegend": false,
+    "data": [{
+      "id": "tidewave_enha_a",
+      "type": "raster",
+      "layout": {
+        "visibility": "none"
+      },
+      "source": {
+              "type": "raster",
+              "url": "mapbox://alvareza.1hl5422n"
+      },        
+        "minzoom": 0,
+        "maxzoom": 8,
+        "z-order": 0 
+    }]
+  },
+  
+  {
+        "name": "Morfologische transportpaden : Put van Hansweert",
+        "layertype": "mapbox-layer-group",
+        "active": false,
+        "data": [{
+            "id": "SEDtrails_WS",
+            "type": "line",
+            "name": "SEDtrails_WS",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/SEDtrails_western_scheldt.GEOjson"
+            },
+            "minzoom": 4,
+            "z-order": 2,
+            "description": "description",
+            "layout": {
+              "visibility": "none"
+            },
+            "paint": {
+              "line-color": 
+                [
+		  "interpolate",
+		  ["linear"],
+		  ["get", "Depth"],
+		  0,
+		  "hsl(190, 100%, 52%)",
+		  20,
+		  "hsl(245, 98%, 56%)",
+		  40,
+		  "hsl(115, 98%, 56%)",
+		  60,
+		  "hsl(79, 42%, 65%)",
+		  80,
+		  "hsl(62, 98%, 56%)",
+		  100,
+		  "hsl(0, 98%, 56%)"
+                ],
+              "line-width": 1
+            }
+          }
+        ]
+  },
+
+  {
+        "name": "Landboundary",
+        "layertype": "mapbox-layer-group",
+        "active": false,
+        "data": [{
+            "id": "Landboundary",
+            "type": "line",
+            "name": "Landboundary",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/Netherlands_MV2.GEOjson"
+            },
+            "minzoom": 4,
+            "z-order": 2,
+            "description": "description",
+            "layout": {
+              "visibility": "none"
+            },
+            "paint": {
+              "line-color": "hsl(0, 7%, 94%)",
+              "line-width": 2
+            }
+          }
+        ]
+  },  
+
+  {
+        "name": "Dieptecontouren",
+        "layertype": "mapbox-layer-group",
+        "active": false,
+        "data": [{
+            "id": "DEPTHcontours",
+            "type": "line",
+            "name": "DEPTHcontours",
+            "active": true,
+            "source": {
+              "type": "geojson",
+              "data": "./static/data/ZDHCWDdepthcontours.GEOjson"
+            },
+            "minzoom": 4,
+            "z-order": 2,
+            "description": "description",
+            "layout": {
+              "visibility": "none"
+            },
+            "paint": {
+              "line-color": 
+                [
+		  "interpolate",
+		  ["linear"],
+		  ["get", "Depth"],
+		  -2,
+		  "hsl(190, 100%, 52%)",
+		  2,
+		  "hsl(245, 98%, 56%)",
+		  8,
+		  "hsl(115, 98%, 56%)",
+		  14,
+		  "hsl(79, 42%, 65%)",
+		  22,
+		  "hsl(62, 98%, 56%)",
+		  40,
+		  "hsl(0, 98%, 56%)"
+                ],
+              "line-width": 1
+            }
+          }
+        ],
+    "barlegend": "background: linear-gradient(to right, #0ad6ff, #3321fd, #33fd21, #b3cb80, #f5fd21, #fd2121);",
+    "bartext": "-2 2 8 14 22 40"
+  },  
+  
+  {
+    "name": "Dieptecontouren (uni-colour)",
+    "layertype": "mapbox-layer-group",
+    "active": false,
+    "data": [
+      {
+        "id": "DEPTHcontours2",
+        "type": "line",
+        "active": true,
+        "source": {
+          "type": "geojson",
+          "data": "./static/data/ZDHCWDdepthcontours.GEOjson"
+        },
+        "paint": {
+          "line-color": "hsl(0, 7%, 94%)",
+          "line-width": 1
+        }
+      }
+    ]
+  },
+
+  {
+    "name": "D10 sediments",
+    "layertype": "mapbox-layer-group",
+    "static": true,
+    "barlegend": false,
+    "data": [{
+      "id": "d10_map",
+      "type": "raster",
+      "layout": {
+        "visibility": "none"
+      },
+      "source": {
+              "type": "raster",
+              "url": "mapbox://alvareza.3erpl10q"
+      },        
+        "minzoom": 0,
+        "maxzoom": 8,
+        "z-order": 0 
+    }]
+  },
+  {
+    "name": "D50 sediments",
+    "layertype": "mapbox-layer-group",
+    "static": true,
+    "barlegend": false,
+    "data": [{
+      "id": "d50_map",
+      "type": "raster",
+      "layout": {
+        "visibility": "none"
+      },
+      "source": {
+              "type": "raster",
+              "url": "mapbox://alvareza.bidlaofb"
+      },        
+        "minzoom": 0,
+        "maxzoom": 8,
+        "z-order": 0 
+    }]
+  },
+  {
+    "name": "D90 sediments",
+    "layertype": "mapbox-layer-group",
+    "static": true,
+    "barlegend": false,
+    "data": [{
+      "id": "d90_map",
+      "type": "raster",
+      "layout": {
+        "visibility": "none"
+      },
+      "source": {
+              "type": "raster",
+              "url": "mapbox://alvareza.2xeaqd2o"
+      },        
+        "minzoom": 0,
+        "maxzoom": 8,
+        "z-order": 0 
+    }]
+  },
+
+  {
+    "name": "Grid en transportberekeningspunten",
+    "layertype": "mapbox-layer-group",
+    "active": false,
+    "barlegend": false,
+    "data": [{
+        "id": "grid_full",
+        "type": "line",
+        "source": {
+          "url": "mapbox://alvareza.5aymz7g2",
+          "type": "vector"
+        },
+        "layout": {
+          "visibility": "none"
+        },
+        "source-layer": "GRID_ReducedN22-6ad9zq",
+        "minzoom": 2,
+        "paint": {
+          "line-color": "#5d5d5b",
+          "line-width": 0.5
+        },
+        "z-order": 0
+      },
+      {
+        "id": "limits_15x5",
+        "type": "circle",
+        "source": {
+          "url": "mapbox://alvareza.1k2il6kd",
+          "type": "vector"
+        },
+        "layout": {
+          "visibility": "none"
+        },
+        "source-layer": "st_interval_015KalonX005Kcros-8fdpn4",
+        "minzoom": 0,
+        "maxzoom": 8.5,
+        "paint": {
+          "circle-color": "black",
+          "circle-radius": 2
+        },
+        "z-order": 0
+      },
+      {
+        "id": "limits_5x3",
+        "type": "circle",
+        "source": {
+          "url": "mapbox://alvareza.0bcm9xyl",
+          "type": "vector"
+        },
+        "layout": {
+          "visibility": "none"
+        },
+        "source-layer": "st_interval_005KalonX003Kcros-1bdcbm",
+        "minzoom": 8.5,
+        "maxzoom": 10,
+        "paint": {
+          "circle-color": "black",
+          "circle-radius": 3
+        },
+        "z-order": 0
+      }
+    ]   
+  },
+  {
+    "name": "Jarkus transecten",
+    "layertype": "mapbox-layer-group",
+    "active": false,
+    "data": [
+      {
+        "id": "jarkus-transects",
+        "type": "line",
+        "active": true,
+        "source": {
+          "url": "mapbox://giosans.1hx5zrgx",
+          "type": "vector"
+        },
+        "source-layer": "jarkus4mapbox-1gg3j8",
+        "paint": {
+          "line-color": "hsl(176, 100%, 32%)"
+        }
+      },
+      {
+        "id": "jarkus-transects-text",
+        "type": "symbol",
+        "active": true,
+        "source": {
+          "url": "mapbox://giosans.1hx5zrgx",
+          "type": "vector"
+        },
+        "source-layer": "jarkus4mapbox-1gg3j8",
+        "layout": {
+          "text-field": ["to-string", ["get", "id"]],
+          "symbol-placement": "line",
+          "text-size": 16,
+          "visibility": "none"
+        },
+        "paint": {
+          "text-color": "hsl(176, 100%, 32%)",
+          "text-halo-color": "white",
+          "text-halo-width": 1,
+          "text-halo-blur": 0
+        },
+        "z-order": 2
+      }
+    ]
+  }
+ 
+]
+
+
+
