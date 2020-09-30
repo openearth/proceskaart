@@ -2105,7 +2105,7 @@
               "url": "mapbox://alvareza.1hl5422n"
       },        
         "minzoom": 0,
-        "maxzoom": 8,
+        "maxzoom": 10,
         "z-order": 0 
     }]
   },
@@ -2264,7 +2264,7 @@
               "url": "mapbox://alvareza.3erpl10q"
       },        
         "minzoom": 0,
-        "maxzoom": 8,
+        "maxzoom": 10,
         "z-order": 0 
     }]
   },
@@ -2284,7 +2284,7 @@
               "url": "mapbox://alvareza.bidlaofb"
       },        
         "minzoom": 0,
-        "maxzoom": 8,
+        "maxzoom": 10,
         "z-order": 0 
     }]
   },
@@ -2304,7 +2304,7 @@
               "url": "mapbox://alvareza.2xeaqd2o"
       },        
         "minzoom": 0,
-        "maxzoom": 8,
+        "maxzoom": 10,
         "z-order": 0 
     }]
   },
