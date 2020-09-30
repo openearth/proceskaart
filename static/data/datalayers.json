@@ -214,7 +214,7 @@
       "active": true,
       "source": {
         "type": "geojson",
-        "data": "./static/data/TRANSPORT_coast_netherlands_UB3.geojson"
+        "data": "./static/data/TRANSPORT_coast_netherlands_UB3.GEOjson"
       },
       "layout": {
         "text-field": "➤",
