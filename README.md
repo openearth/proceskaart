@@ -1,4 +1,4 @@
-# coastviewer-static
+# proceskaart
 
 > Static website for the proceskaart data. The site is available through http://www.openearth.nl/proceskaart/
 
